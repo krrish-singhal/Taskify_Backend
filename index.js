@@ -55,7 +55,7 @@ app.use(passport.session());
 // CORS setup after session
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://taskify-142w85e2t-krrish-singhals-projects.vercel.app",
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true,
   })
 );

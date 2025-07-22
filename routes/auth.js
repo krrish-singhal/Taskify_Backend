@@ -25,7 +25,7 @@ router.post("/guest", guestLogin)
 router.post("/logout", logout)
 
 // Added route for changing password (requires authentication)
-router.post("/change-password", changePassword)
+router.post("/change-password", protect, changePassword)
 
 // Google OAuth routes
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))

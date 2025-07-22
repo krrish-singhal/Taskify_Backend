@@ -207,10 +207,6 @@ exports.resetPassword = async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-  console.log("JWT_SECRET from env:", process.env.JWT_SECRET);
-console.log("Token received from frontend:", token);
-console.log("Hashed token used for search:", resetPasswordToken);
-
 }
 
 // Guest login
