@@ -27,21 +27,5 @@ router.post("/logout", logout)
 // Added route for changing password (requires authentication)
 router.post("/change-password", protect, changePassword)
 
-// Google OAuth routes
-router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))
-
-router.get(
-  "/google/callback",
-  passport.authenticate("google", { failureRedirect: "/login", session: false }),
-  (req, res) => {
-    // Generate JWT
-    const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, {
-      expiresIn: "30d",
-    })
-
-    // Redirect to frontend with token as query param
-    res.redirect(`${process.env.CLIENT_URL}/auth/success?token=${token}`)
-  },
-)
 
 module.exports = router
